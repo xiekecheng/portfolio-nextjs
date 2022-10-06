@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { BsList, BsXCircle } from 'react-icons/bs';
 import {
@@ -12,6 +13,8 @@ const NavBar = () => {
 	const [nav, setNav] = useState(false);
 	const [shadow, setShadow] = useState(false);
 	const [navBg, setNavBg] = useState('#ecf0f3');
+	const [linkCorlor,setLinkCorlor] = useState('#1F2937')
+	const router = useRouter();
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
 			if (window.scrollY > 80) {
@@ -21,6 +24,17 @@ const NavBar = () => {
 			}
 		});
 	});
+
+	useEffect(() => {
+		const routes = ['/property','/crypto','/netflix','/twitch',]
+		if(routes.includes(router.asPath)){
+			setNavBg('transparent')
+			setLinkCorlor('white')
+		}else{
+			setNavBg('#ecf0f3')
+			setLinkCorlor('#1F2937')
+		}
+	}, [router]);
 	const handleScroll = (content) => {
 		const dom = document.getElementById(content);
 		console.log('dom', dom.scrollTop, dom.offsetTop);
@@ -51,7 +65,7 @@ const NavBar = () => {
 					</a>
 				</Link>
 				<div>
-					<ul className='hidden md:flex items-center uppercase'>
+					<ul style={{color:linkCorlor}} className='hidden md:flex items-center uppercase'>
 						<Link href='/'>
 							<li className='ml-10 text-sm hover:border-b'>Home</li>
 						</Link>
@@ -68,7 +82,7 @@ const NavBar = () => {
 							<li className='ml-10 text-sm hover:border-b'>Contact</li>
 						</Link>
 					</ul>
-					<div onClick={() => setNav(!nav)} className='md:hidden'>
+					<div style={{color:linkCorlor}} onClick={() => setNav(!nav)} className='md:hidden'>
 						<BsList size={25} className='cursor-pointer' />
 					</div>
 
