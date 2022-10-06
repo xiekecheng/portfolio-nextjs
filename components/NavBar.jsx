@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsList, BsXCircle } from 'react-icons/bs';
@@ -10,30 +10,61 @@ import {
 } from 'react-icons/fa';
 const NavBar = () => {
 	const [nav, setNav] = useState(false);
+	const [shadow, setShadow] = useState(false);
+	const [navBg, setNavBg] = useState('#ecf0f3');
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 80) {
+				setShadow(true);
+			} else {
+				setShadow(false);
+			}
+		});
+	});
+	const handleScroll = (content) => {
+		const dom = document.getElementById(content);
+		console.log('dom', dom.scrollTop, dom.offsetTop);
+		window.scrollTo({
+			top: dom.offsetTop - 80,
+			behavior: 'smooth',
+		});
+	};
 	return (
-		<div className='fixed w-full h-20 z-10 shadow-xl'>
+		<div
+			style={{ backgroundColor: `${navBg}` }}
+			className={
+				shadow
+					? 'fixed w-full h-20 z-[100] shadow-xl'
+					: 'fixed w-full h-20 z-[100]'
+			}
+		>
 			<div className='flex justify-between items-center w-full h-full px-2 2xl:px-4'>
-				<Image
-					src='/../public/assets/navLogo.png'
-					alt='navLogo'
-					width='125'
-					height='50'
-				/>
+				<Link href='/'>
+					<a>
+						<Image
+							className='cursor-pointer'
+							src='/../public/assets/navLogo.png'
+							alt='navLogo'
+							width='125'
+							height='50'
+						/>
+					</a>
+				</Link>
 				<div>
 					<ul className='hidden md:flex items-center uppercase'>
 						<Link href='/'>
 							<li className='ml-10 text-sm hover:border-b'>Home</li>
 						</Link>
-						<Link href='/'>
+						<Link href='/#about'>
 							<li className='ml-10 text-sm hover:border-b'>About</li>
 						</Link>
-						<Link href='/'>
+						<Link href='/#skills'>
 							<li className='ml-10 text-sm hover:border-b'>Skills</li>
 						</Link>
-						<Link href='/'>
+						<Link href='/#projects'>
 							<li className='ml-10 text-sm hover:border-b'>Projects</li>
 						</Link>
-						<Link href='/'>
+						<Link href='/#contact'>
 							<li className='ml-10 text-sm hover:border-b'>Contact</li>
 						</Link>
 					</ul>
@@ -60,19 +91,44 @@ const NavBar = () => {
 								<div className='flex flex-col'>
 									<ul className='uppercase'>
 										<Link href='/'>
-											<li className='mt-10 text-sm'>Home</li>
+											<li
+												onClick={() => setNav(false)}
+												className='mt-10 text-sm'
+											>
+												Home
+											</li>
 										</Link>
-										<Link href='/'>
-											<li className='mt-10 text-sm'>About</li>
+										<Link href='/#about'>
+											<li
+												onClick={() => setNav(false)}
+												className='mt-10 text-sm'
+											>
+												About
+											</li>
 										</Link>
-										<Link href='/'>
-											<li className='mt-10 text-sm'>Skills</li>
+										<Link href='/#skills'>
+											<li
+												onClick={() => setNav(false)}
+												className='mt-10 text-sm'
+											>
+												Skills
+											</li>
 										</Link>
-										<Link href='/'>
-											<li className='mt-10 text-sm'>Projects</li>
+										<Link href='/#projects'>
+											<li
+												onClick={() => setNav(false)}
+												className='mt-10 text-sm'
+											>
+												Projects
+											</li>
 										</Link>
-										<Link href='/'>
-											<li className='mt-10 text-sm'>Contact</li>
+										<Link href='/#contact'>
+											<li
+												onClick={() => setNav(false)}
+												className='mt-10 text-sm'
+											>
+												Contact
+											</li>
 										</Link>
 									</ul>
 									<div className='mt-40'>
