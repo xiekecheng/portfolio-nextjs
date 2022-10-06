@@ -17,12 +17,12 @@ const Projects = () => {
 			href:'/crypto'
 		},
 		{
-			title: 'Property Finder',
+			title: 'NetFlix App',
 			src: netflixIcon,
 			href:'/netflix'
 		},
 		{
-			title: 'Property Finder',
+			title: 'Twitch UI',
 			src: twitchIcon,
 			href:'/twitch'
 		},
