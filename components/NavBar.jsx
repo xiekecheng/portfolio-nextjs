@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { BsList, BsXCircle } from 'react-icons/bs';
+import logoIcon from '../public/assets/navLogo.png';
 import {
 	FaLinkedinIn,
 	FaGithub,
@@ -57,7 +58,7 @@ const NavBar = () => {
 					<a>
 						<Image
 							className='cursor-pointer'
-							src='/../public/assets/navLogo.png'
+							src={logoIcon}
 							alt='navLogo'
 							width='125'
 							height='50'
@@ -91,7 +92,7 @@ const NavBar = () => {
 							<div className='w-[75%] sm:w-[50%] md:w-[40%] bg-white h-screen p-10'>
 								<nav className='flex justify-between items-center'>
 									<Image
-										src='/../public/assets/navLogo.png'
+										src={logoIcon}
 										alt='navLogo'
 										width='125'
 										height='50'
