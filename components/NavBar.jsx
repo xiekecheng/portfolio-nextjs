@@ -87,9 +87,11 @@ const NavBar = () => {
 						<BsList size={25} className='cursor-pointer' />
 					</div>
 
+					{/* 遮罩层 */}
 					{nav && (
-						<div className='fixed left-0 top-0 w-full h-screen bg-black/40'>
-							<div className='w-[75%] sm:w-[50%] md:w-[40%] bg-white h-screen p-10'>
+						<div className='fixed left-0 top-0 w-full h-screen bg-black/40' />
+					)}
+					<div className={`w-[75%] sm:w-[50%] md:w-[40%] bg-white h-screen p-10 fixed top-0 ease-in duration-300 ${nav?'left-0':'-left-full'}`}>
 								<nav className='flex justify-between items-center'>
 									<Image
 										src={logoIcon}
@@ -165,8 +167,6 @@ const NavBar = () => {
 									</div>
 								</div>
 							</div>
-						</div>
-					)}
 				</div>
 			</div>
 		</div>
