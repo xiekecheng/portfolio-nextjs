@@ -69,16 +69,16 @@ const NavBar = () => {
 						<Link href='/'>
 							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Home</li>
 						</Link>
-						<Link href='/#about'>
+						<Link href='/#about' scroll={false}>
 							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>About</li>
 						</Link>
-						<Link href='/#skills'>
+						<Link href='/#skills' scroll={false}>
 							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Skills</li>
 						</Link>
-						<Link href='/#projects'>
+						<Link href='/#projects' scroll={false}>
 							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Projects</li>
 						</Link>
-						<Link href='/#contact'>
+						<Link href='/#contact' scroll={false}>
 							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Contact</li>
 						</Link>
 					</ul>
