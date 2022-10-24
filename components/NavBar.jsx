@@ -38,7 +38,6 @@ const NavBar = () => {
 	}, [router]);
 	const handleScroll = (content) => {
 		const dom = document.getElementById(content);
-		console.log('dom', dom.scrollTop, dom.offsetTop);
 		window.scrollTo({
 			top: dom.offsetTop - 80,
 			behavior: 'smooth',
@@ -65,22 +64,22 @@ const NavBar = () => {
 						/>
 					</a>
 				</Link>
-				<div>
+				<div className='flex gap-4 items-center'>
 					<ul style={{color:linkCorlor}} className='hidden md:flex items-center uppercase'>
 						<Link href='/'>
-							<li className='ml-10 text-sm hover:border-b'>Home</li>
+							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Home</li>
 						</Link>
 						<Link href='/#about'>
-							<li className='ml-10 text-sm hover:border-b'>About</li>
+							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>About</li>
 						</Link>
 						<Link href='/#skills'>
-							<li className='ml-10 text-sm hover:border-b'>Skills</li>
+							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Skills</li>
 						</Link>
 						<Link href='/#projects'>
-							<li className='ml-10 text-sm hover:border-b'>Projects</li>
+							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Projects</li>
 						</Link>
 						<Link href='/#contact'>
-							<li className='ml-10 text-sm hover:border-b'>Contact</li>
+							<li className='ml-10 text-sm hover:border-b border-[#5753DD]'>Contact</li>
 						</Link>
 					</ul>
 					<div style={{color:linkCorlor}} onClick={() => setNav(!nav)} className='md:hidden'>
